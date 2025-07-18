@@ -22,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class MatiereControleur {
 	private final MatiereServices matiereservices;
-
+	@GetMapping("/lister")
 	public List<MatiereDto> findAllMatieres() {
 		return matiereservices.findAllMatieres();
 	}
@@ -35,7 +35,7 @@ public class MatiereControleur {
 		return matiereservices.CreateMatiere(a);
 	}
 	@DeleteMapping("/delete/{id}")
-	public void DeleteMatiere(Long id) {
+	public void DeleteMatiere(@PathVariable Long id) {
 		matiereservices.DeleteMatiere(id);
 	}
 	@PostMapping("/update")
